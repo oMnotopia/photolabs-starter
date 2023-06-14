@@ -2,10 +2,19 @@ import React from 'react';
 
 import '../styles/PhotoList.scss';
 
-const PhotoList = () => {
-  <ul className="photo-list">
-    {/* Insert React */}
-  </ul>
+const PhotoList = (props) => {
+
+  const mappedPhotos = props.photos.map((photo) => {
+    return(
+      <img key={photo.id} src={photo.urls.regular}></img>
+    )
+  })
+  
+  return(
+    <ul className="photo-list">
+      {mappedPhotos}
+    </ul>
+  )
 }
 
 PhotoList.defaultProps = {
