@@ -1,10 +1,17 @@
 
 import React from 'react';
 
+import FavIcon from './FavIcon'
+
 import '../styles/PhotoListItem.scss';
 
-const PhotoListItem = () => {
-  /* Insert React */
+const PhotoListItem = (props) => {
+
+  return (
+    <li key={props.id} className="photo-list__item">
+      <img src={props.imageSource}  className="photo-list__image"/>
+    </li>
+  );
 }
 
 PhotoListItem.defaultProps = {
