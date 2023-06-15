@@ -32,6 +32,11 @@ TopicList.defaultProps = {
       "slug": "topic-3",
       "title": "People"
     },
+    {
+      "id": "4",
+      "slug": "topic-1",
+      "title": "Nature"
+    },  
   ]
 }
 export default TopicList
