@@ -1,15 +1,20 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import TopNavigationBar from '../components/TopNavigationBar';
 import PhotoList from '../components/PhotoList';
 
 import '../styles/HomeRoute.scss';
 
-const HomeRoute = (props) => 
-  <div className="home-route">
-    <TopNavigationBar topics={props.topics}/>
+const HomeRoute = (props) => {
 
-    <PhotoList photos={props.photos}/>
-  </div>
+  const [liked, setLiked] = useState([]);
+
+  return (
+    <div className="home-route">
+      <TopNavigationBar topics={props.topics}/>
+      <PhotoList photos={props.photos} liked={liked} setLiked={setLiked}/>
+    </div>
+  )
+}
 
 export default HomeRoute;
