@@ -2,12 +2,15 @@ import React from 'react';
 
 import '../styles/PhotoDetailsModal.scss'
 
-export const PhotoDetailsModal = ({modal, setModal}) => {
+export const PhotoDetailsModal = ({liked, photos, modal, setModal}) => {
 
   const handleClick = () => {
-    setModal(false)
+    setModal({isClicked: false, idClicked: ""})
   }
 
+  console.log("modal: ", modal)
+  console.log("photos: ", photos)
+  
   return(
     <div className='photo-details-modal'>
       <button className='photo-details-modal--close-button' onClick={handleClick}>
