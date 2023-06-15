@@ -8,7 +8,7 @@ import '../styles/PhotoListItem.scss';
 const PhotoListItem = (props) => {
 
   const handleClick = () => {
-    props.setModal(true)
+    props.setModal({isClicked: true, idClicked: props.id})
   }
 
   return (
