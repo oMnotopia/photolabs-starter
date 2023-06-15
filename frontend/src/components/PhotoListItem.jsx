@@ -7,10 +7,14 @@ import '../styles/PhotoListItem.scss';
 
 const PhotoListItem = (props) => {
 
+  const handleClick = () => {
+    props.setModal(true)
+  }
+
   return (
     <li key={props.id} className="photo-list__item">
       <PhotoFavButton id={props.id} liked={props.liked} setLiked={props.setLiked}/>
-      <img src={props.urls.regular}  className="photo-list__image"/>
+      <img src={props.urls.regular}  className="photo-list__image" onClick={handleClick}/>
     </li>
   );
 }
