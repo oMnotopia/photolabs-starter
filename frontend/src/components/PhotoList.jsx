@@ -2,6 +2,8 @@ import React from 'react';
 
 import '../styles/PhotoList.scss';
 
+import PhotoListItem from './PhotoListItem';
+
 const PhotoList = (props) => {
 
   const mappedPhotos = props.photos.map((photo) => {
@@ -9,10 +11,15 @@ const PhotoList = (props) => {
       <img key={photo.id} src={photo.urls.regular}></img>
     )
   })
+
+  const photos = [...Array(3)]
+  const list = photos.map((photo, i) => {
+    return <PhotoListItem key={i} />
+  })
   
   return(
     <ul className="photo-list">
-      {mappedPhotos}
+      {list}
     </ul>
   )
 }
