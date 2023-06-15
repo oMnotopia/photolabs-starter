@@ -17,7 +17,10 @@ const PhotoList = (props) => {
       urls={photo.urls} 
       user={photo.user}
       liked={props.liked} 
-      setLiked={props.setLiked}/>
+      setLiked={props.setLiked}
+      setModal={props.setModal}
+    />
+
     )
   })
   
