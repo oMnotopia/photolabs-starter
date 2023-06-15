@@ -5,11 +5,11 @@ import PhotoList from '../components/PhotoList';
 
 import '../styles/HomeRoute.scss';
 
-const HomeRoute = () => 
+const HomeRoute = (props) => 
   <div className="home-route">
-    <TopNavigationBar />
+    <TopNavigationBar topics={props.topics}/>
 
-    <PhotoList />
+    <PhotoList photos={props.photos}/>
   </div>
 
 export default HomeRoute;
