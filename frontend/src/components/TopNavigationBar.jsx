@@ -6,12 +6,13 @@ import FavBadge from './FavBadge';
 import '../styles/TopNavigationBar.scss'
 
 
-const TopNavigation = (props) => {
+const TopNavigation = ( { topics, liked } ) => {
+
   return (
     <div className="top-nav-bar">
       <span className="top-nav-bar__logo">PhotoLabs</span>
-      <TopicList topics={props.topics}/> 
-      <FavBadge liked={props.liked}/>
+      <TopicList topics={topics}/> 
+      <FavBadge isFavPhotoExist={liked}/>
     </div>
   )
 }
