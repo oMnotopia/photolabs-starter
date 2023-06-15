@@ -8,7 +8,6 @@ function PhotoFavButton(props) {
   const [colour, setColour] = useState("")
 
   const { liked, setLiked } = props
-  console.log(props.liked)
 
   const handleClick = () => {
     setColour(colour ?  "" : "#C80000")

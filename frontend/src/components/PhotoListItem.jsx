@@ -6,7 +6,7 @@ import PhotoFavButton from './PhotoFavButton';
 import '../styles/PhotoListItem.scss';
 
 const PhotoListItem = (props) => {
-  // console.log(props)
+
   return (
     <li key={props.id} className="photo-list__item">
       <PhotoFavButton id={props.id} liked={props.liked} setLiked={props.setLiked}/>
