@@ -10,7 +10,7 @@ const PhotoListItem = (props) => {
   return (
     <li key={props.id} className="photo-list__item">
       <PhotoFavButton />
-      <img src={props.imageSource}  className="photo-list__image"/>
+      <img src={props.urls.regular}  className="photo-list__image"/>
     </li>
   );
 }
