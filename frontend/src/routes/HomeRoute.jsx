@@ -7,12 +7,10 @@ import '../styles/HomeRoute.scss';
 
 const HomeRoute = (props) => {
 
-  const [liked, setLiked] = useState([]);
-
   return (
     <div className="home-route">
-      <TopNavigationBar topics={props.topics} liked={liked.length}/>
-      <PhotoList photos={props.photos} setModal={props.setModal} liked={liked} setLiked={setLiked}/>
+      <TopNavigationBar topics={props.topics} liked={props.liked.length}/>
+      <PhotoList photos={props.photos} modal={props.modal} setModal={props.setModal} liked={props.liked} setLiked={props.setLiked}/>
     </div>
   )
 }
