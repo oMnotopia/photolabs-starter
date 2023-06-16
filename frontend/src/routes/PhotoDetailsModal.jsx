@@ -1,15 +1,20 @@
 import React from 'react';
 
+import PhotoList from '../components/PhotoList';
+import PhotoFavButton from '../components/PhotoFavButton';
+
 import '../styles/PhotoDetailsModal.scss'
 
-export const PhotoDetailsModal = ({liked, photos, modal, setModal}) => {
+export const PhotoDetailsModal = ({ photo, modal, liked, setLiked, setModal}) => {
 
   const handleClick = () => {
     setModal({isClicked: false, idClicked: ""})
   }
 
-  console.log("modal: ", modal)
-  console.log("photos: ", photos)
+  // console.log(liked)
+  
+  //Turning the  object of objects into an array of objects
+  const similarPhotos = Object.values(photo.similar_photos)
   
   return(
     <div className='photo-details-modal'>
@@ -26,8 +31,25 @@ export const PhotoDetailsModal = ({liked, photos, modal, setModal}) => {
           </defs>
         </svg>
       </button>
+      <div className="photo-details-modal-container__image">
+        <PhotoList  photos={[photo]} modal={modal} liked={liked} setLiked={setLiked} />
+        {/* <PhotoFavButton id={photo.id} liked={liked} setLiked={setLiked}/>
+        <img src={photo.urls.regular} className="photo-details-modal__image" /> */}
+      </div>
+
+
+      <div >
+        <div className="photo-details-modal__images">
+        <h3 className="photo-details-modal__header">
+          Similar Photos
+        </h3>
+         <PhotoList photos={similarPhotos} modal={modal} liked={liked} setLiked={setLiked}/>
+        </div>
+      </div>
     </div>
   )
 }
+
+//
 
 export default PhotoDetailsModal;
