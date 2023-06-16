@@ -3,25 +3,20 @@ import React, { useCallback, useState } from 'react';
 import FavIcon from './FavIcon';
 import '../styles/PhotoFavButton.scss';
 
-function PhotoFavButton(props) {
-
-  const [colour, setColour] = useState("")
-
-  const { liked, setLiked } = props
+function PhotoFavButton({ liked, setLiked, id }) {
 
   const handleClick = () => {
-    setColour(colour ?  "" : "#C80000")
-    if (liked.includes(props.id)) {
-      setLiked(prev => [...prev.filter(item => item !== props.id)])
+    if (liked.includes(id)) {
+      setLiked(prev => [...prev.filter(item => item !== id)])
     } else {
-      setLiked(prev => [...prev, props.id])
+      setLiked(prev => [...prev, id])
     }
   }
 
   return (
     <div className="photo-list__fav-icon" onClick={handleClick}>
       <div className="photo-list__fav-icon-svg">
-        <FavIcon  fill={colour}/>  
+        <FavIcon fill={liked.includes(id) ? "#C80000" : ""}/>  
       </div>
     </div>
   );
