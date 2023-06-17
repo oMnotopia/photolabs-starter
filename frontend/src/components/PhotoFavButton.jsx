@@ -1,22 +1,29 @@
 import React, { useCallback, useState } from 'react';
 
+import useApplicationData from '../hooks/useApplicationData';
+
 import FavIcon from './FavIcon';
 import '../styles/PhotoFavButton.scss';
 
-function PhotoFavButton({ liked, setLiked, id }) {
+function PhotoFavButton({ setLiked, id }) {
+
+  const {state, addToFavPhotoIds, removeToFavPhotoIds} = useApplicationData();
+ 
 
   const handleClick = () => {
-    if (liked.includes(id)) {
-      setLiked(prev => [...prev.filter(item => item !== id)])
+    if (state.liked.includes(id)) {
+      removeToFavPhotoIds(id)
+      console.log("Remove: ",state)
     } else {
-      setLiked(prev => [...prev, id])
+      addToFavPhotoIds(id)
+      console.log("Add: ",state)
     }
   }
 
   return (
     <div className="photo-list__fav-icon" onClick={handleClick}>
       <div className="photo-list__fav-icon-svg">
-        <FavIcon fill={liked.includes(id) ? "#C80000" : ""}/>  
+        <FavIcon fill={state.liked.includes(id) ? "#C80000" : ""}/>  
       </div>
     </div>
   );
