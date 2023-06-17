@@ -20,7 +20,6 @@ const useApplicationData = () => {
   }
 
   const showModal = (id) => {
-    //console.log("*******************", state, action)
     dispatch({ type: ACTIONS.SELECT_PHOTO, value: {isOpen: true, idClicked: id} });
   }
 
@@ -85,13 +84,3 @@ function reducer(state, action) {
 }
 
 export default useApplicationData;
-
-// if (liked.includes(id)) {
-//   setLiked(prev => [...prev.filter(item => item !== id)])
-// } else {
-//   setLiked(prev => [...prev, id])
-// }
-
-// const [liked, setLiked] = useState([]);
-// const [modal, setModal] = useState({isClicked: false, idClicked: ""})
-// const photoToBePassed = photos.filter(item => item.id === modal.idClicked)[0]
