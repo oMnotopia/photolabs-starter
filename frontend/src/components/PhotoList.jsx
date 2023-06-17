@@ -4,7 +4,7 @@ import '../styles/PhotoList.scss';
 
 import PhotoListItem from './PhotoListItem';
 
-const PhotoList = ({photos, liked, setLiked, modal, setModal}) => {
+const PhotoList = ({photos, modal, setModal, state, addToFavPhotoIds, removeFromFavPhotoIds, showModal}) => {
 
   const list = photos.map((photo, i) => {
     return (
@@ -15,10 +15,12 @@ const PhotoList = ({photos, liked, setLiked, modal, setModal}) => {
         similar_photos={photo.similar_photos}
         urls={photo.urls} 
         user={photo.user}
-        liked={liked} 
-        setLiked={setLiked}
         setModal={setModal}
         modal={modal}
+        state={state}
+        addToFavPhotoIds={addToFavPhotoIds}
+        removeFromFavPhotoIds={removeFromFavPhotoIds}
+        showModal={showModal}
       />
     )
   })
