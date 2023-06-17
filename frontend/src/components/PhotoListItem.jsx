@@ -5,11 +5,10 @@ import PhotoFavButton from './PhotoFavButton';
 
 import '../styles/PhotoListItem.scss';
 
-const PhotoListItem = ({id, location, urls, user, setModal, state, addToFavPhotoIds, removeFromFavPhotoIds, showModal}) => {
+const PhotoListItem = ({id, location, urls, user, state, addToFavPhotoIds, removeFromFavPhotoIds, showModal}) => {
 
   const handleClick = () => {
-    showModal()
-    //setModal({isClicked: true, idClicked: id})
+    showModal(id)
   }
   
   return (
