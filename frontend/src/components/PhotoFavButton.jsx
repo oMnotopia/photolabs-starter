@@ -1,22 +1,15 @@
-import React, { useCallback, useState } from 'react';
-
-import useApplicationData from '../hooks/useApplicationData';
+import React from 'react';
 
 import FavIcon from './FavIcon';
 import '../styles/PhotoFavButton.scss';
 
-function PhotoFavButton({ setLiked, id }) {
-
-  const {state, addToFavPhotoIds, removeToFavPhotoIds} = useApplicationData();
- 
+function PhotoFavButton({ id, state, addToFavPhotoIds, removeFromFavPhotoIds }) {
 
   const handleClick = () => {
     if (state.liked.includes(id)) {
-      removeToFavPhotoIds(id)
-      console.log("Remove: ",state)
+      removeFromFavPhotoIds(id)
     } else {
       addToFavPhotoIds(id)
-      console.log("Add: ",state)
     }
   }
 
