@@ -5,13 +5,11 @@ import PhotoFavButton from '../components/PhotoFavButton';
 
 import '../styles/PhotoDetailsModal.scss'
 
-export const PhotoDetailsModal = ({ photo, modal, liked, setLiked, setModal}) => {
+export const PhotoDetailsModal = ({ photo, state, closeModal, addToFavPhotoIds, removeFromFavPhotoIds}) => {
 
   const handleClick = () => {
-    setModal({isClicked: false, idClicked: ""})
+    closeModal()
   }
-
-  // console.log(liked)
   
   //Turning the  object of objects into an array of objects
   const similarPhotos = Object.values(photo.similar_photos)
@@ -32,8 +30,13 @@ export const PhotoDetailsModal = ({ photo, modal, liked, setLiked, setModal}) =>
         </svg>
       </button>
       <div className="photo-details-modal-container__image">
-        <PhotoList  photos={[photo]} modal={modal} liked={liked} setLiked={setLiked} />
-        {/* <PhotoFavButton id={photo.id} liked={liked} setLiked={setLiked}/>
+        <PhotoList 
+          photos={[photo]} 
+          state={state} 
+          addToFavPhotoIds={addToFavPhotoIds} 
+          removeFromFavPhotoIds={removeFromFavPhotoIds}
+        />
+        {/* <PhotoFavButton id={photo.id} state={state} setLiked={setLiked}/>
         <img src={photo.urls.regular} className="photo-details-modal__image" /> */}
       </div>
 
@@ -43,7 +46,12 @@ export const PhotoDetailsModal = ({ photo, modal, liked, setLiked, setModal}) =>
         <h3 className="photo-details-modal__header">
           Similar Photos
         </h3>
-         <PhotoList photos={similarPhotos} modal={modal} liked={liked} setLiked={setLiked}/>
+        <PhotoList 
+          photos={similarPhotos} 
+          state={state}
+          addToFavPhotoIds={addToFavPhotoIds} 
+          removeFromFavPhotoIds={removeFromFavPhotoIds} 
+        />
         </div>
       </div>
     </div>
