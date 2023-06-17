@@ -15,7 +15,6 @@ const App = () => {
 
   const {state, addToFavPhotoIds, removeFromFavPhotoIds, showModal, closeModal} = useApplicationData();
 
-  const [modal, setModal] = useState({isClicked: false, idClicked: ""})
   const photoToBePassed = photos.filter(item => item.id === state.photos)[0]
 
   return(
@@ -30,11 +29,11 @@ const App = () => {
         showModal={showModal}
       />
       {state.isModalOpen && <PhotoDetailsModal 
-        setModal={setModal} 
-        modal={modal} 
         photo={photoToBePassed}
         state={state}
         closeModal={closeModal}
+        addToFavPhotoIds={addToFavPhotoIds}
+        removeFromFavPhotoIds={removeFromFavPhotoIds}
       />}
 
     </div>
