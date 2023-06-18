@@ -10,10 +10,7 @@ export const PhotoDetailsModal = ({ photo, state, closeModal, addToFavPhotoIds, 
   const handleClick = () => {
     closeModal()
   }
-  
-  //Turning the  object of objects into an array of objects
-  const similarPhotos = Object.values(photo.similar_photos)
-  
+
   return(
     <div className='photo-details-modal'>
       <button className='photo-details-modal--close-button' onClick={handleClick}>
@@ -47,7 +44,7 @@ export const PhotoDetailsModal = ({ photo, state, closeModal, addToFavPhotoIds, 
           Similar Photos
         </h3>
         <PhotoList 
-          photos={similarPhotos} 
+          photos={photo.similar_photos} 
           state={state}
           addToFavPhotoIds={addToFavPhotoIds} 
           removeFromFavPhotoIds={removeFromFavPhotoIds} 
