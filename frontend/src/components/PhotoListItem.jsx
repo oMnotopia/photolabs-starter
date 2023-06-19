@@ -13,17 +13,13 @@ const PhotoListItem = (props) => {
     showModal(id)
   }
 
-  const favPhoto = useMemo(() => {
-    if (liked.includes(id)) return true
-    return false
-  }, [JSON.stringify(liked)]);
+
   
   return (
     <li key={id} className="photo-list__item">
       <PhotoFavButton 
         id={id} 
         liked={liked}
-        favPhoto={favPhoto}
         addToFavPhotoIds={addToFavPhotoIds}
         removeFromFavPhotoIds={removeFromFavPhotoIds}
       />
