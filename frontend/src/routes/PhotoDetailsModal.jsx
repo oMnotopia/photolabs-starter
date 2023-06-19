@@ -13,7 +13,7 @@ export const PhotoDetailsModal = ({ photo, state, closeModal, addToFavPhotoIds, 
 
   return(
     <div className='photo-details-modal'>
-      <button className='photo-details-modal--close-button' onClick={handleClick}>
+      <button className='photo-details-modal__close-button' onClick={handleClick}>
         <svg width="24" height="24" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
           <g clipPath="url(#clip0_428_287)">
             <path d="M14.0625 3.9375L3.9375 14.0625" stroke="black" strokeLinecap="round" strokeLinejoin="round"/>
