@@ -8,6 +8,9 @@ const defaultState = {
   liked: [],
 };
 
+//Function that contains functions that make dispatch calls to reducer.
+//Each dispatch call contains an action labeled as type and a payload value.
+//Outer function returns inner functions so they can be called individually in the program.
 const useApplicationData = () => {
  
   const [state, dispatch] = useReducer(reducer, defaultState);
@@ -47,17 +50,19 @@ const useApplicationData = () => {
   }
 }
 
+
+//Available actions that can be called in dispatch.
 export const ACTIONS = {
   FAV_PHOTO_ADDED: 'FAV_PHOTO_ADDED',
   FAV_PHOTO_REMOVED: 'FAV_PHOTO_REMOVED',
   SET_PHOTO_DATA: 'SET_PHOTO_DATA',
-  SET_TOPIC_DATA: 'SET_TOPIC_DATA',
   SELECT_PHOTO: 'SELECT_PHOTO',
   CLOSE_PHOTO: 'CLOSE_PHOTO',
-  DISPLAY_PHOTO_DETAILS: 'DISPLAY_PHOTO_DETAILS',
   GET_PHOTOS_BY_TOPICS: 'GET_PHOTOS_BY_TOPICS'
 }
 
+//Reducer called in use reducer.
+//Possible actions and return updates default state.
 function reducer(state, action) {
   switch (action.type) {
     case "FAV_PHOTO_ADDED":
