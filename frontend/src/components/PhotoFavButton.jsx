@@ -5,7 +5,7 @@ import '../styles/PhotoFavButton.scss';
 
 function PhotoFavButton(props) {
 
-  const { id, liked, addToFavPhotoIds, removeFromFavPhotoIds } = props
+  const { id, liked, favPhoto, addToFavPhotoIds, removeFromFavPhotoIds } = props
 
   const handleClick = () => {
     if (liked.includes(id)) {
@@ -18,7 +18,7 @@ function PhotoFavButton(props) {
   return (
     <div className="photo-list__fav-icon" onClick={handleClick}>
       <div className="photo-list__fav-icon-svg">
-        <FavIcon fill={liked.includes(id) ? "#C80000" : ""}/>  
+        <FavIcon fill={favPhoto ? "#C80000" : ""}/>  
       </div>
     </div>
   );
