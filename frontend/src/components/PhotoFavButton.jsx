@@ -3,7 +3,9 @@ import React from 'react';
 import FavIcon from './FavIcon';
 import '../styles/PhotoFavButton.scss';
 
-function PhotoFavButton({ id, liked, addToFavPhotoIds, removeFromFavPhotoIds }) {
+function PhotoFavButton(props) {
+
+  const { id, liked, addToFavPhotoIds, removeFromFavPhotoIds } = props
 
   const handleClick = () => {
     if (liked.includes(id)) {

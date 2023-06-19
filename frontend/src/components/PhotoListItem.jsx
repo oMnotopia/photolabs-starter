@@ -5,7 +5,9 @@ import PhotoFavButton from './PhotoFavButton';
 
 import '../styles/PhotoListItem.scss';
 
-const PhotoListItem = ({id, location, urls, user, liked, addToFavPhotoIds, removeFromFavPhotoIds, showModal}) => {
+const PhotoListItem = (props) => {
+
+  const {id, location, urls, user, liked, addToFavPhotoIds, removeFromFavPhotoIds, showModal} = props
 
   const handleClick = () => {
     showModal(id)
