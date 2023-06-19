@@ -1,14 +1,15 @@
 import { useReducer } from "react";
 
-const useApplicationData = () => {
-  const defaultState = {
-    isModalOpen: false,
-    modalPhotoDetails: null,
-    topics: [],
-    photos: [],
-    liked: [],
-  };
+const defaultState = {
+  isModalOpen: false,
+  modalPhotoDetails: null,
+  topics: [],
+  photos: [],
+  liked: [],
+};
 
+const useApplicationData = () => {
+ 
   const [state, dispatch] = useReducer(reducer, defaultState);
 
   const addToFavPhotoIds = (id) => {
@@ -60,7 +61,6 @@ export const ACTIONS = {
 function reducer(state, action) {
   switch (action.type) {
     case "FAV_PHOTO_ADDED":
-
       return state = { ...state, liked: [...state.liked, action.value]} 
 
     case "FAV_PHOTO_REMOVED":
