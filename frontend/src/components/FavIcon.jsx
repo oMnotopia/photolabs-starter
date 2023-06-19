@@ -1,6 +1,8 @@
 import React from 'react';
 
-const FavIcon = ({width, height, fill, outlineWidth, stroke, liked}) => {
+const FavIcon = (props) => {
+
+  const {width, height, fill, outlineWidth, stroke, liked} = props
 
   return (
  

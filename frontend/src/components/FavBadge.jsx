@@ -3,7 +3,9 @@ import FavIcon from './FavIcon';
 
 import '../styles/FavBadge.scss';
 
-export const FavBadge = ({ liked }) => {
+export const FavBadge = (props) => {
+
+  const { liked } = props
 
   return (
     <div className='fav-badge'>
