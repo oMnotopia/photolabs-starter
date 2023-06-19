@@ -28,7 +28,11 @@ const useApplicationData = () => {
   }
 
   const getData = (topics, photos) => {
-    dispatch({ type: SET_PHOTO_DATA, value: {topics, photos} });
+    dispatch({ type: ACTIONS.SET_PHOTO_DATA, value: {topics, photos} });
+  }
+
+  const getPhotosByTopic = (photos) => {
+    dispatch({type: ACTIONS.GET_PHOTOS_BY_TOPICS, value: photos});
   }
 
   return {
@@ -37,8 +41,8 @@ const useApplicationData = () => {
     removeFromFavPhotoIds,
     showModal,
     closeModal,
-    // setPhotoSelected,
-    // onClosePhotoDetailsModal,
+    getData,
+    getPhotosByTopic
   }
 }
 
@@ -49,7 +53,8 @@ export const ACTIONS = {
   SET_TOPIC_DATA: 'SET_TOPIC_DATA',
   SELECT_PHOTO: 'SELECT_PHOTO',
   CLOSE_PHOTO: 'CLOSE_PHOTO',
-  DISPLAY_PHOTO_DETAILS: 'DISPLAY_PHOTO_DETAILS'
+  DISPLAY_PHOTO_DETAILS: 'DISPLAY_PHOTO_DETAILS',
+  GET_PHOTOS_BY_TOPICS: 'GET_PHOTOS_BY_TOPICS'
 }
 
 function reducer(state, action) {
@@ -62,19 +67,16 @@ function reducer(state, action) {
       return state = { ...state, liked: [...state.liked.filter(elem => elem !== action.value)]}
 
     case "SELECT_PHOTO":
-      return state = {...state, isModalOpen: action.value.isOpen, photos: action.value.idClicked}
+      return state = {...state, isModalOpen: action.value.isOpen, modalPhotoDetails: [...state.photos.filter(item => item.id === action.value.idClicked)]}
 
     case "CLOSE_PHOTO":
       return state = {...state, isModalOpen: action.value.isOpen}
   
-    case SET_PHOTO_DATA:
-      return state.photos = action.value
+    case "SET_PHOTO_DATA":
+      return state = {...state, photos: [...action.value.photos], topics: [...action.value.topics]}
 
-    case SET_TOPIC_DATA:
-      return state.topics.push(action.value)
-
-    case DISPLAY_PHOTO_DETAILS:
-      return state.isModalOpen = true;
+    case "GET_PHOTOS_BY_TOPICS":
+      return state = {...state, photos: [...action.value]}
 
     default:
       throw new Error(
