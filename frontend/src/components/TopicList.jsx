@@ -10,7 +10,6 @@ const TopicList = (props) => {
 
   return(
     <div className="top-nav-bar__topic-list">
-
       {topics.map((topic, index )=> {
         return <TopicListItem key={index} id={topic.id} slug={topic.slug} title={topic.title} getPhotosByTopic={getPhotosByTopic}/>
       })}

@@ -12,8 +12,6 @@ const PhotoListItem = (props) => {
   const handleClick = () => {
     showModal(id)
   }
-
-
   
   return (
     <li key={id} className="photo-list__item">
