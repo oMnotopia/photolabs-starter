@@ -5,11 +5,14 @@ import TopicListItem from './TopicListItem';
 import '../styles/TopicList.scss';
 
 const TopicList = (props) => {
+
+  const { getPhotosByTopic, topics } = props
+
   return(
     <div className="top-nav-bar__topic-list">
 
-      {props.topics.map((topic, index )=> {
-        return <TopicListItem key={index} id={topic.id} slug={topic.slug} title={topic.title}/>
+      {topics.map((topic, index )=> {
+        return <TopicListItem key={index} id={topic.id} slug={topic.slug} title={topic.title} getPhotosByTopic={getPhotosByTopic}/>
       })}
     </div>
   )
