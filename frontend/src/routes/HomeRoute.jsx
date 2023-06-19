@@ -16,7 +16,7 @@ const HomeRoute = (props) => {
       />
       <PhotoList 
         photos={props.state.photos} 
-        state={props.state}
+        liked={props.state.liked}
         addToFavPhotoIds={props.addToFavPhotoIds}
         removeFromFavPhotoIds={props.removeFromFavPhotoIds}
         showModal={props.showModal}
