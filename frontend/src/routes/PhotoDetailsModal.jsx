@@ -27,12 +27,8 @@ export const PhotoDetailsModal = ({ photo, state, closeModal, addToFavPhotoIds, 
         </svg>
       </button>
       <div className="photo-details-modal-container__image">
-        <PhotoList 
-          photos={[photo]} 
-          liked={state.liked} 
-          addToFavPhotoIds={addToFavPhotoIds} 
-          removeFromFavPhotoIds={removeFromFavPhotoIds}
-        />
+        <PhotoFavButton id={photo.id} liked={state.liked} addToFavPhotoIds={addToFavPhotoIds} removeFromFavPhotoIds={removeFromFavPhotoIds}/>
+        <img src={photo.urls.regular} className="photo-details-modal__image" />
       </div>
 
 
