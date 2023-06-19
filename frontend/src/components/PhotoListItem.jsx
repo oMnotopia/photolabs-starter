@@ -14,10 +14,9 @@ const PhotoListItem = (props) => {
   }
 
   const favPhoto = useMemo(() => {
-    console.log("Memo")
     if (liked.includes(id)) return true
     return false
-  }, [liked]);
+  }, [JSON.stringify(liked)]);
   
   return (
     <li key={id} className="photo-list__item">
