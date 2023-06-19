@@ -1,5 +1,5 @@
 
-import React from 'react';
+import React, { useMemo } from 'react';
 
 import PhotoFavButton from './PhotoFavButton';
 
@@ -12,12 +12,19 @@ const PhotoListItem = (props) => {
   const handleClick = () => {
     showModal(id)
   }
+
+  const favPhoto = useMemo(() => {
+    console.log("Memo")
+    if (liked.includes(id)) return true
+    return false
+  }, [liked]);
   
   return (
     <li key={id} className="photo-list__item">
       <PhotoFavButton 
         id={id} 
         liked={liked}
+        favPhoto={favPhoto}
         addToFavPhotoIds={addToFavPhotoIds}
         removeFromFavPhotoIds={removeFromFavPhotoIds}
       />
@@ -32,16 +39,5 @@ const PhotoListItem = (props) => {
     </li>
   );
 }
-
-// PhotoListItem.defaultProps = {
-//   "id": "1",
-//   "location": {
-//     "city": "Montreal",
-//     "country": "Canada"
-//   },
-//   "imageSource": `${process.env.PUBLIC_URL}/Image-1-Regular.jpeg`,
-//   "username": "Joe Example",
-//   "profile": `${process.env.PUBLIC_URL}/profile-1.jpg`
-// }
 
 export default PhotoListItem
